@@ -27,15 +27,15 @@
         
 
         <li class="nav-item">
-            <a class="nav-link mr-3 "  href="#"> <h4> Home </h4> </a>
+            <a class="nav-link mr-5 "  href="#"> <h4> Home </h4> </a>
         </li>
     
         <li class="nav-item">
-            <a class="nav-link mx-5 " href="#"> <h4>  Pomodoro </h4> </a>
+            <a class="nav-link ml-4 mr-4 " href="#"> <h4>  Pomodoro </h4> </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link ml-2 " href="#"> <h4> Contacts </h4> </a>
+            <a class="nav-link ml-3 " href="#"> <h4> Contacts </h4> </a>
         </li>
 
 
@@ -52,7 +52,7 @@
     </nav>
 
   
-        <a class="navbar-brand ml-5 " style="position: absolute; top: 0.7em; left: 5em;" href="#">
+        <a class="navbar-brand ml-5 " style="position: absolute; top: 0.7em; left: 4em;" href="#">
             <image src="{{url_for('static',filename = 'images/i-minute_logo.png')}}" width="100%" height="100%" alt="">
         </a>
 
@@ -65,17 +65,48 @@
     <body style="background-color: #f2f2f2;">
     
 
-        
+        <!-- hero image 1 -->
         <div class="image_one" style="position: absolute; top: 15em; left:10em; width: 35%; height: 35%;" >
 
             <image src="{{url_for('static',filename = 'images/timeintohands.png')}}"  alt=""></image>
         </div>
         
-        <div class="hero_text" style="color: #6D686A; font-family: 'Poppins',  sans-serif; font-size: 25px; border: 5px outset #fff; padding: 5em; width: 22em; height:16em; text-align: center; background-color: #fff; position: absolute; right: 9.5em; top: 9.5em">
+        <!-- hero text -->
+        <div class="hero_text" style="color: #6D686A; font-family: 'Poppins',  sans-serif; font-size: 25px; border: 5px outset #fff; padding: 5em; width: 22em; height:16em; text-align: center; background-color: #fff; position: absolute; right: 7em; top: 9.5em">
             <p>
                 <span style="color: #008E7F; "> iminute </span> allows you to take time into your own hands and reminds you when to take a break..
             </p>
 
+        </div>
+
+
+        <!-- orange bg -->
+        <div class="p-3 mb-2  text-dark" style="position: absolute; top: 43.5em; background-color: #F8E395; width: 100%; height: 35%;"></div>
+
+
+
+       <!-- what pomodoro does -->
+        <div class="hero_text" style="color: #6D686A; font-family: 'Poppins',  sans-serif; font-size: 23px; border: 5px outset #fff; padding: 5em; width: 27em; height:28.5em; text-align: center; background-color: #fff; position: absolute; left: 7em; top: 42em">
+
+            <h3 style="color: #008E7F; " class="h3 mt-0">HOW IT WORKS</h3>
+            <br>
+            <p>Set the amount of time you want to work.. </p>
+  
+            <p>  Set the amount of time you want to be on break. </p>
+                
+            <p>   specify what you want to do with your break time.</p> 
+                
+            <p>  see how much time you have left for working or taking a break.</p> 
+                
+            <p> see how many work sessions you have
+                 completed.
+            </p>
+
+        </div>
+
+        <div class="image_one" style="position: absolute; top: 65em; right:10em; width: 35%; height: 35%;" >
+
+            <image src="{{url_for('static',filename = 'images/bestyou.png')}}"  alt=""></image>
         </div>
 
 
@@ -86,5 +117,17 @@
 <!-- footer -->
 
 {% block footer%}
+
+<!-- Footer -->
+
+    <!-- Copyright -->
+    <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div> -->
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
 
 {% endblock%}
