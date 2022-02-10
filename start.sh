@@ -1,0 +1,2 @@
+export SECRET_KEY=acf0c1fc131067c19402d1ec58d0064e
+python3.8 manage.py server
