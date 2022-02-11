@@ -12,9 +12,9 @@ from flask_sqlalchemy import SQLAlchemy
 # login_manager.login_view = 'auth.login'
 
 
-
-bootstrap = Bootstrap()
 db = SQLAlchemy()
+bootstrap = Bootstrap()
+
 # photos = UploadSet('photos',IMAGES)
 # mail = Mail()
 
