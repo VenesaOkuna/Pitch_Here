@@ -1,15 +1,19 @@
-from flask import Flask
-from config import config_options
-from flask_mail import Mail
-from flask_login import LoginManager, login_manager
-from flask_bootstrap import Bootstrap
-from flask_sqlalchemy import SQLAlchemy
-from flask_uploads import IMAGES, UploadSet,configure_uploads
+from flask_sqlalchemy.model import Model
+from . import db,login_manager
+from datetime import datetime
+from flask_login import UserMixin,current_user
+from werkzeug.security import generate_password_hash,check_password_hash
 
-db = SQLAlchemy()
-mail = Mail()
-bootstrap = Bootstrap()
-login_manager = LoginManager()
-login_manager.session_protection = 'strong'
-login_manager.login_view = 'auth.login'
-photos = UploadSet('photos',IMAGES)
+@login_manager.user_loader
+def load_user(user_id):
+  return User.query.get(user_id)
+
+class User(UserMixin,db.Model):
+  __tablename__ = 'users'
+  id = db.Column(db.Integer, primary_key = True)
+  username = db.Column(db.String(255),unique = True)
+  email  = db.Column(db.String(255),unique = True)
+  secure_password = db.Column(db.String(255))
+  bio = db.Column(db.String(255))
+  profile_pic_path = db.Column(db.String())
+  tasks = db.relationship('Task', backref='user', lazy='dynamic')
