@@ -1,11 +1,13 @@
 from app import create_app,db
 from flask_script import Manager,Server
 from flask_migrate import Migrate, MigrateCommand
-from config import DevConfig, config_options
 from app.models import *
 import os
 
+#creating app instance
 app = create_app('development')
+app = create_app('development')
+app = create_app('production')
 
 #flask migrate
 manager = Manager(app)
