@@ -9,7 +9,7 @@ class Config:
 
     DB_USER = os.environ.get('DB_USER') or  ""
     DB_PASSWORD = os.environ.get('DB_PASSWORD') or ""
-    DB = 'pomodoro'
+    DB = 'pitchhere'
     
     SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@localhost/{DB}'
 
@@ -46,7 +46,7 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://venesa:1234@localhost/pomodoro'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://venesa:1234@localhost/pitchhere'
     DEBUG = True
 
 
