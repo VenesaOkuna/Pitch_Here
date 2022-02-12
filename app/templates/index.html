@@ -1,43 +1,17 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro%}
 
-<!-- Styles block -->
-
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+{% extends 'base.html'%} 
+{% block content %}
+<div class="container-fluid welcome-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 welcome">
+                {% if current_user.is_authenticated%}
+                <a id="start" class="btn btn-danger animated infinite flash" href="{{url_for('home.index')}}">See all Pitches</a>
+                {% else %}
+                <a id="start" class="btn btn-danger animated infinite flash" href="{{url_for('auth.login')}}">Sign In</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
-
-<!-- title -->
-{% block head%} 
-<title> home </title>
-{% endblock %}
-
-<!-- nav -->
-{% block navbar%} 
-
-
-
-
-{% endblock %}
-
-<!-- body -->
-{% block body %} 
-
-
-
-{% endblock %}
-
-<!-- footer -->
-
-{% block footer%}
-
-    
-
-
-
-{% endblock%}
