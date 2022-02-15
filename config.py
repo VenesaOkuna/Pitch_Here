@@ -1,56 +1,49 @@
 import os
 
-
 class Config:
-    
+
     '''
     General configuration parent class
     '''
-
-    DB_USER = os.environ.get('DB_USER') or  ""
-    DB_PASSWORD = os.environ.get('DB_PASSWORD') or ""
-    DB = 'pitchhere'
-    
-    SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@localhost/{DB}'
-
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-
+    SECRET_KEY='acf0c1fc131067c19402d1ec58d0064e'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
-
-    #email configurations
-    MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
-    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SUBJECT_PREFIX = 'Pitch Here'
-    SENDER_EMAIL = 'venesa.okuna@student.moringaschool.com'  
-
-
     # simple mde  configurations
     # SIMPLEMDE_JS_IIFE = True
     # SIMPLEMDE_USE_CDN = True
-    @staticmethod
-    def init_app(app):
-        pass
+
 
 
 class ProdConfig(Config):
+    '''
+    Pruduction configuration child class
+
+    Args:
+        Config: The parent configuration class with General configuration settings
+    '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
+class TestConfig(Config):
+    '''
+    Testing configuration child class
+
+    Args:
+        Config: The parent configuration class with General configuration settings 
+    '''
     pass
 
-# class TestConfig(Config):
-#     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://venesa:1234@localhost/watchlist_test'
-
-
-
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://venesa:1234@localhost/pitchhere'
+    '''
+    Development configuration child class
+    
+    Args:
+        Config: The parent configuration class with General configuration settings
+    '''
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://venesa:1234@localhost/pitch'
     DEBUG = True
 
 
 config_options = {
-'development':DevConfig,
-'production':ProdConfig
+    'development': DevConfig,
+    'production': ProdConfig,
+    'test': TestConfig
 }
